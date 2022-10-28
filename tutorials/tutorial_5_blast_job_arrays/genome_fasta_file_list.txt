@@ -1,0 +1,6 @@
+../genome_files/GCF_000159155.2.fa
+../genome_files/GCF_000160875.1.fa
+../genome_files/GCF_002158885.1.fa
+../genome_files/GCF_007785935.1.fa
+../genome_files/GCF_019459585.1.fa
+../genome_files/GCF_021495045.1.fa
