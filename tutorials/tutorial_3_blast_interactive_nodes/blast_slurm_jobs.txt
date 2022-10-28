@@ -1,3 +1,47 @@
+## Install miniconda.
+
+# Install into a folder other than home. 
+Assuming you choose the following directory /work/sycuro_lab/username/miniconda3
+
+# Change directory 
+cd /work/sycuro_lab/username/miniconda3 
+
+# Download the most recent Miniconda3 Linux 64-bit using wget.
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+# Install into a folder other than home. 
+sh Miniconda3-latest-Linux-x86_64.sh –b –p /work/sycuro_lab/username/miniconda3
+
+# If you don’t see (base) at the bottom left of you screen run the following commands;
+/work/sycuro_lab/username/miniconda3/bin/conda init
+
+# Start the conda environment instead of logging out and back in.
+source ~/.bashrc
+
+
+## Install Conda Environments
+
+#Create the blast conda environment.
+conda create --name blast_env
+
+#Activate the blast conda environment.
+conda activate blast_env
+
+#Install blast conda package.
+conda install -c bioconda blast
+
+## Export conda environment for others.
+
+# Export the blast conda environment for others to use.
+conda env export > blast_env.yaml
+
+# Any one can install the blast conda environment using a yaml file.
+conda env create --file blast_env.yaml
+
+# Activate the blast conda environment.
+conda activate blast_env
+
+
 1. Slurm Interactive job to run blast.
 
 # Allocate an interactive node.
