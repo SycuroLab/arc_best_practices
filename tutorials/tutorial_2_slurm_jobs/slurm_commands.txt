@@ -1,0 +1,61 @@
+Slurm Commands
+
+1. Slurm Interactive Jobs.
+
+# Allocate a slurm interactive job using the salloc command.
+salloc --time 5:00:00 --partition cpu2017-bf05,cpu2019-bf05,cpu2021-bf24,cpu2019,cpu2021,cpu2022,cpu2013,bigmem,synergy -n 14 --mem 60G
+
+# Run the following shell script.
+sh random_numbers_interactive_job.sh
+
+# Take a look at the output directory.
+cd interactive_job_output_dir
+
+# View the file we generated.
+less random_numbers.txt 
+
+# View the sorted file we generated.
+less sorted random_numbers.txt
+
+# Return to previous directory.
+cd ..
+
+2. Slurm Batch Jobs.
+
+# Run batch job shell script.
+sbatch < random_numbers_sbatch_job.sh
+Submitted batch job 16634255
+
+# Change directory to the batch job output directory.
+cd sbatch_job_output_dir 
+
+# View the file we generated.
+less random_numbers.txt
+
+# View the sorted file we generated.
+less sorted random_numbers.txt
+
+# Return to previous directory.
+cd ..
+
+3. Slurm job arrays.
+
+# Run job array shell script.
+# Keep job id in job_id shell variable and echo to console.
+job_id=$(sbatch < random_numbers_job_array.sh)
+(base) echo $job_id
+Submitted batch job 16634260
+
+# Take a look at the output directory.
+cd job_array_output_dir
+
+# List all files in job_array_output_dir
+ls -alth
+
+# View the paths to the file generated.
+find $(pwd) -type f -name "*.txt" | sort -V | less
+
+# Return to previous directory.
+cd ..
+
+

@@ -1,0 +1,61 @@
+Linux Commands
+
+cd – Change directory (folder)
+cd /path/to/directory
+
+ls – List directory (folder)
+ls -alth /path/to/directory
+
+mkdir – Make directory (folder)
+mkdir -p /path/to/directory
+
+less – View file for contents and scroll through. (Search /search_term + enter is like ctrl + f. To quit press ‘q’ to exit)
+
+cp – Copy files and/or folders from one location to another.
+	cp /path/to/file /path/to/directory
+	cp -rf /path/to/directory1 /path/to/directory2
+
+mv – Move files and/or folders from one location to another.
+	mv /path/to/file /path/to/target_dir
+	mv /path/to/source_dir /path/to/target_dir
+
+rm – Remove/Delete files and/or folders from a location. 
+	cp /path/to/file /path/to/directory
+	cp -rf /path/to/directory1 
+
+Warning: If files or folders are removed/deleted it is gone forever. Always make sure you have the correct path before putting rm in a command. Especially if using rm -rf /path/to/dir. Start with cp so you do not accidently press enter on the parent directory
+
+echo – Print line of text to console terminal.
+	echo “Hello World!”
+
+cat – Concatenate files.
+	cat /path/to/file
+	cat /path/to/file1 /path/to/file2 > /path/to/file3
+
+head – Prints the first lines of one or more files (or piped data) to standard output.
+	head /path/to/file <-- First 10 lines by default
+	head -n+1 /path/to/file <-- First line. ie. header row of a table.
+
+tail  – Prints the last few number of lines (10 lines by default) of a certain file, then terminates.
+	tail /path/to/file <-- Last 10 lines by default
+	tail -n+2 /path/to/file <-- Skip first line. ie. Skip header row of a table.
+
+man – Manual entry of a command.
+man head
+man tail
+
+history – Command history.
+history
+history | grep "tail"
+
+grep – Searches for PATTERNS in a FILE.
+grep ">" proteins.fasta (Gets header lines of fasta file.)
+
+sed – Stands for stream editor. Can perform lots of functions on file like searching, find and replace, insertion or deletion. 
+grep ">" proteins.fasta | sed 's/>//g' (Search and replace ">" with "")
+
+find – Find files or directories based on specified conditions.
+find /path/to/directory -type f -name "*.fastq“
+find /path/to/directory -type d -name “blast"
+
+
