@@ -18,4 +18,14 @@ echo $job_id
 # See job resource usage.
 seff $job_id
 
+2. Run blastn using cpn60 UT protein sequences as the query and genome fasta files as the database translated in six-frames.
+
+# Run the slurm job array.
+job_id=$(sh tblastn_genomes.sh)
+
+# Print the job id.
+echo $job_id
+
+# See job resource usage.
+seff $job_id
 
