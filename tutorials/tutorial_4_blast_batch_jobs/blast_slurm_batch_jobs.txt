@@ -1,0 +1,24 @@
+1. Slurm sbatch job to run blastn.
+
+# Run slurm job script using sbatch and save to a shell variable called job_id.
+job_id=$(sbatch < blastn_sbatch_job.sh )
+
+# Print the job id using the $job_id variable.
+echo $job_id
+Submitted batch job 16634408
+
+# Check job resource usage with seff command
+seff $job_id
+
+2. Slurm sbatch job to run blastp.
+
+# Run slurm job script using sbatch and save to a shell variable called job_id.
+job_id=$(sbatch < blastp_sbatch_job.sh )
+
+# Print the job id using the $job_id variable.
+echo $job_id
+Submitted batch job 16634423
+
+# Check job resource usage with seff command
+seff $job_id  
+
