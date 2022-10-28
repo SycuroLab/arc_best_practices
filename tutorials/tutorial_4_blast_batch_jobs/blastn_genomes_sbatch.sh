@@ -6,8 +6,8 @@
 #SBATCH --cpus-per-task=14
 #SBATCH --time=1-00:00:00
 #SBATCH --mem=60G
-#SBATCH --output=blastn_genomes_sbatch_jobs.%A_%a.out
-#SBATCH --error=blastn_genomes_sbatch_jobs.%A_%a.err
+#SBATCH --output=blastn_genomes_sbatch_jobs.%A.out
+#SBATCH --error=blastn_genomes_sbatch_jobs.%A.err
 
 # Get the bashrc information for conda.
 source ~/.bashrc
@@ -19,7 +19,7 @@ conda activate blast_env
 blast_num_threads=14
 
 # The list of genome assembly files.
-list_files="genome_fasta_file_list.txt"
+list_file="genome_fasta_file_list.txt"
 
 # The genome assembly fasta database file.
 IFS=$'\n' 
