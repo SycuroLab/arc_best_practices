@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 #SBATCH --job-name="tblastn_genomes_job_array"
 #SBATCH --partition=cpu2022,synergy,cpu2019,cpu2021
 #SBATCH --nodes=1
@@ -41,5 +41,5 @@ makeblastdb -in ${genome_file} -dbtype nucl -out ${output_dir}/${genome_id}
 tblastn -query ../fasta_files/cpndb_cart_ut_seq.txt -db ${output_dir}/${genome_id} -out ${output_dir}/cpndb_cart_ut_seq_${genome_id}_tblastn.tsv -evalue 1e-05 -max_target_seqs 10 -num_threads ${blast_num_threads} -outfmt '6 qseqid qlen sseqid stitle len qstart qend sstart send length evalue bitscore pident ppos qcovs nident mismatch positive gaps qframe sframe'
 
 # Add header to file.
-echo "qseqid qlen sseqid stitle len qstart qend sstart send length evalue bitscore pident ppos qcovs nident mismatch positive gaps qframe sframe" | tr ' ' '\t' | cat - ${output_dir}/cpndb_cart_ut_seq_${genome_id}_blastn.tsv > ${output_dir}/cpndb_cart_ut_seq_${genome_id}_tblastn_header.tsv
+echo "qseqid qlen sseqid stitle len qstart qend sstart send length evalue bitscore pident ppos qcovs nident mismatch positive gaps qframe sframe" | tr ' ' '\t' | cat - ${output_dir}/cpndb_cart_ut_seq_${genome_id}_tblastn.tsv > ${output_dir}/cpndb_cart_ut_seq_${genome_id}_tblastn_header.tsv
 
