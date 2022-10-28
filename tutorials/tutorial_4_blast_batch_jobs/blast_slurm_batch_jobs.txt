@@ -22,3 +22,33 @@ Submitted batch job 16634423
 # Check job resource usage with seff command
 seff $job_id  
 
+3. Run blastn using cpn60 UT nucleotide sequences as the query and genome fasta files as the database.
+
+# Get the list of of full file paths for the genome fasta files using ".fa" file extension and write to a file.
+find ../genome_files -type f -name "*.fa" > genome_fasta_file_list.txt
+
+# Need to know how many genome we have so that we can know how many indexes in the job array we need.
+wc -l genome_fasta_file_list.txt
+6 genome_fasta_file_list.txt
+
+# Run the slurm batch job.
+job_id=$(sh blastn_genomes_sbatch.sh)
+
+# Print the job id.
+echo $job_id
+
+# See job resource usage.
+seff $job_id
+
+4. Run blastn using cpn60 UT protein sequences as the query and genome fasta files as the database translated in six-frames.
+
+# Run the slurm batch job.
+job_id=$(sh tblastn_genomes_sbatch.sh)
+
+# Print the job id.
+echo $job_id
+
+# See job resource usage.
+seff $job_id
+
+

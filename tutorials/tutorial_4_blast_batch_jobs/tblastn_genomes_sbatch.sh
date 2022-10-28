@@ -19,7 +19,7 @@ conda activate blast_env
 blast_num_threads=14
 
 # The list of genome assembly files.
-list="genome_fasta_file_list.txt"
+list_file="genome_fasta_file_list.txt"
 
 # The genome assembly fasta database file.
 IFS=$'\n' 
